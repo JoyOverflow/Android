@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="pxgd.hyena.com.lovepet">
+          package="pxgd.hyena.com.minesweeper">
 
     <application
         android:allowBackup="true"
@@ -9,26 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".LoaderActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".RegisterActivity">
-        </activity>
-        <activity android:name=".AgreementActivity">
-        </activity>
-        <activity android:name=".ValidateActivity">
-        </activity>
-        <activity android:name=".PetMsgActivity">
-        </activity>
-        <activity android:name=".LoginActivity">
-        </activity>
-        <activity android:name=".ForgetActivity">
         </activity>
     </application>
 
