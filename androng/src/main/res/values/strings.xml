@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Androng</string>
+
+    <string name="menu_start_1p">1 player</string>
+    <string name="menu_start_2p">2 players</string>
+    <string name="menu_start_0p">0 players</string>
+    <string name="menu_pause">pause</string>
+    <string name="menu_resume">resume</string>
+    <string name="menu_sound">sound</string>
+    <string name="menu_info">info</string>
+</resources>

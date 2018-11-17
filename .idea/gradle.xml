@@ -8,10 +8,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androng" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lovepet" />
             <option value="$PROJECT_DIR$/minesweeper" />
             <option value="$PROJECT_DIR$/mytesting" />
+            <option value="$PROJECT_DIR$/scratch" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

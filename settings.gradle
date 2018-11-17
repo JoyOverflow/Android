@@ -1,1 +1,1 @@
-include ':app', ':lovepet', ':mytesting', ':minesweeper'
+include ':app', ':lovepet', ':mytesting', ':minesweeper', ':androng', ':scratch'
