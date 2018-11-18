@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/minesweeper" />
             <option value="$PROJECT_DIR$/mytesting" />
             <option value="$PROJECT_DIR$/scratch" />
+            <option value="$PROJECT_DIR$/tagimageview" />
+            <option value="$PROJECT_DIR$/viewbackground" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

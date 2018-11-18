@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        
         scratchView = (ScratchView) findViewById(R.id.scratch_view);
         scratchView.setOnPercentChangeListener(new ScratchView.OnPercentChangeListener() {
             @Override
