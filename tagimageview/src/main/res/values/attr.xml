@@ -21,5 +21,7 @@
         </attr>
         <attr name="simple_tag_enable" format="boolean" />
         <attr name="simple_tag_round_radius" format="dimension" />
+
+        <attr name="customImageViewStyle" format="reference" />
     </declare-styleable>
 </resources>

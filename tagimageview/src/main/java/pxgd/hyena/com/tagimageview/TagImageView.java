@@ -21,6 +21,7 @@ import android.util.Log;
 
 public class TagImageView extends AppCompatImageView {
 
+
     public static final String TAG = "TagImageView";
     public static final byte LEFT_TOP = 0x00;
     public static final byte RIGHT_TOP = 0x01;
@@ -61,13 +62,14 @@ public class TagImageView extends AppCompatImageView {
     public TagImageView(Context context) {
         this(context, null);
     }
-
     public TagImageView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
 
+        this(context, attrs, 0);
+        //this(context, attrs, R.attr.customImageViewStyle);
+    }
     public TagImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
         mDensity = context.getResources().getDisplayMetrics().density;
         TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.SimpleTagImageView,defStyleAttr,0);
         mTagOrientation = a.getInteger(R.styleable.SimpleTagImageView_simple_tag_orientation,0);
