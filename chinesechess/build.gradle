@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        applicationId "pxgd.hyena.com.mytesting"
+        applicationId "pxgd.hyena.com.chinesechess"
         minSdkVersion 22
         targetSdkVersion 26
         versionCode 1

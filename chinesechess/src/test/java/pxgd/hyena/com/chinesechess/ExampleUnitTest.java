@@ -1,4 +1,4 @@
-package pxgd.hyena.com.mytesting;
+package pxgd.hyena.com.chinesechess;
 
 import org.junit.Test;
 

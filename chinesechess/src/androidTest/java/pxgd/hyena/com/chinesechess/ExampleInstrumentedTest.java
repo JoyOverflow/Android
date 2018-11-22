@@ -1,4 +1,4 @@
-package pxgd.hyena.com.mytesting;
+package pxgd.hyena.com.chinesechess;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("pxgd.hyena.com.mytesting", appContext.getPackageName());
+        assertEquals("pxgd.hyena.com.chinesechess", appContext.getPackageName());
     }
 }
