@@ -1,12 +1,9 @@
-package pxgd.hyena.com.buddylist;
+package pxgd.hyena.com.testmodule;
 
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
-/**
- * ListView列表视填充数组
- */
 public class MainActivity extends ListActivity {
 
     @Override
@@ -21,6 +18,5 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_activated_1,
                 list);
         setListAdapter(ada);
-
     }
 }
