@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+/**
+ * ListView列表视填充对象数组
+ */
 public class PersonActivity extends ListActivity {
 
     @Override

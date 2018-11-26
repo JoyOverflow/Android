@@ -52,7 +52,5 @@ public class ProfileActivity extends AppCompatActivity {
         description.setEnabled(false);
         description.setBackgroundColor(getResources().getColor(android.R.color.white));
         description.setTextColor(getResources().getColor(android.R.color.black));
-
-
     }
 }

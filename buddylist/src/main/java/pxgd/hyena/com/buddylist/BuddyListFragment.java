@@ -68,7 +68,6 @@ public class BuddyListFragment extends ListFragment {
         this.onListItemSelectedListener = (OnListItemSelectedListener) context;
     }
 
-
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Person selectedPerson = (Person) l.getItemAtPosition(position);
