@@ -27,13 +27,6 @@ package pxgd.hyena.com.chinesechess;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
-
-import android.R.integer;
-import android.bluetooth.BluetoothA2dp;
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * algorithm from feiyan
@@ -43,6 +36,8 @@ import android.os.Parcelable;
 
 public class AI {
 	private int MAX_PLY = 4;
+
+	//棋盘（x=0..8 y=0..9共 90个落子点）
 	public static final int SIZE_X = 9;
 	public static final int SIZE_Y = 10;
 	public static final int BOARD_SIZE = SIZE_X*SIZE_Y;
@@ -252,6 +247,7 @@ public class AI {
 		xside = DARK; 
 		computerside = DARK;
 
+		//0是黑棋，1是红棋，7为空格
 		int[] clr = {
 			0, 0, 0, 0, 0, 0, 0, 0, 0,
 			7, 7, 7, 7, 7, 7, 7, 7, 7,
@@ -264,6 +260,7 @@ public class AI {
 			7, 7, 7, 7, 7, 7, 7, 7, 7,
 			1, 1, 1, 1, 1, 1, 1, 1, 1
 		};
+		//5是车，4是炮，0是兵，7为空格
 		int[] pc = 	{
 			5, 3, 2, 1, 6, 1, 2, 3, 5,
 			7, 7, 7, 7, 7, 7, 7, 7, 7,

@@ -85,14 +85,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //MobclickAgent.onPause(this);
-
         mChessboardView.saveGameStatus();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         //MobclickAgent.onResume(this);
     }
     @Override

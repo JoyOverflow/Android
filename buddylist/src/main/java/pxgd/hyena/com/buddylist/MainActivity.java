@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
 /**
- * ListView列表视填充数组
+ * 字串数组填充ListView列表视
  */
 public class MainActivity extends ListActivity {
 
@@ -14,13 +14,11 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         String[] list={"徐浩然","王启帆","田展旭","何欣朋","唐艺芯","赵悦"};
         ArrayAdapter<String> ada=new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_activated_1,
                 list);
         setListAdapter(ada);
-
     }
 }

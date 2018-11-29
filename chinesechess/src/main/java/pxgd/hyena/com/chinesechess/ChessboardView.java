@@ -83,20 +83,12 @@ public class ChessboardView extends AppCompatImageView {
 		super(context, attrs);
 		init(context);
 	}
-
 	public ChessboardView(Context context) {
 		super(context);
 		init(context);
 	}
-
-	public void setInfoTextview(TextView tv) {
-		mInfoTextView = tv;
-	}
-	
 	void init(Context context){
 		mContext = context;
-		
-		
 		mAlertDialogBuilder = new AlertDialog.Builder(mContext);
 		mAlertDialogBuilder.setCancelable(false)
 		       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -110,56 +102,83 @@ public class ChessboardView extends AppCompatImageView {
 		           }
 		       });
 	}
-	
+
+
+	public void setInfoTextview(TextView tv) {
+		mInfoTextView = tv;
+	}
 	private int canvasCoord2ChessIndex(PointF point) {
-		Point logicPoint = new Point((int)((point.x - mStartBoardX + mLaticeLen2)/mLaticeLen), (int)((point.y - mStartBoardY +mLaticeLen2)/mLaticeLen));
+		Point logicPoint = new Point(
+				(int)((point.x - mStartBoardX + mLaticeLen2)/mLaticeLen),
+				(int)((point.y - mStartBoardY +mLaticeLen2)/mLaticeLen)
+		);
 		int index =logicPoint.x + logicPoint.y * 9;
 		if (index >= AI.BOARD_SIZE || index < 0) {
 			return -1;
 		}
 		return index;
 	}
-	private PointF chessIndex2CanvasCoord(int i) {
-		PointF point = new PointF(chessIndex2LogicPoint(i));
-		point.x *= mLaticeLen ;
-		point.x += mStartBoardX;
-		point.y *= mLaticeLen ;
-		point.y += mStartBoardY;
-		return point;
+
+
+
+	public int px2dp(float pxValue) {
+		final float scale =  mContext.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
 	}
-	private Point chessIndex2LogicPoint(int i) {
-		return new Point(i%9,i/9);
+	public int dp2px(float dipValue) {
+		final float scale = mContext.getResources().getDisplayMetrics().density;
+		return (int) (dipValue * scale + 0.5f);
 	}
-	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		if (mLaticeLen <0) {
-			// load chess images
+			//加载棋子图像
 			Bitmap chessBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.qz);
 
-			mLaticeLen = getWidth() * 35 /320.0f;
-			mChesslen = mLaticeLen * 19.0f  / 20;
+			//返回px
+			int width=getWidth();
+			int height=getHeight();
+			int qz_width=chessBitmap.getWidth();
+			int width3=px2dp(width);//320
+			int height3=px2dp(height);//354
+			int qz_width3=px2dp(qz_width);//490
+
+            //一个棋子的大小
+			mLaticeLen = qz_width / 14;
+			//将棋子大小放大倍数
+			mChesslen = mLaticeLen*1.005f;
+
+			//mLaticeLen = getWidth() * 35 /320.0f;
+			//mChesslen = mLaticeLen * 19.0f  / 20;
 			mLaticeLen2 = mLaticeLen/2.0f;
+			//mChessLen2 = mChesslen /2.0f;
+			//mStartBoardX = getWidth() * 20.0f / 320;
+			//mStartBoardY = getHeight() * 20.0f /354;
+
 			mChessLen2 = mChesslen /2.0f;
-			
-			mStartBoardX = getWidth() * 20.0f / 320;
-			mStartBoardY = getHeight() * 20.0f /354;
-			
+			mStartBoardX = width * 20.0f / 320;
+			mStartBoardY = height * 20.0f /354;
+
 	        int stepH = chessBitmap.getHeight() / 3;
 	        int stepW = chessBitmap.getWidth() / 14;
 	        for (int i = 0; i < 7; i++) {
 				mChessBitmaps[AI.LIGHT][i] = Bitmap.createBitmap(chessBitmap, i * stepW, 0, stepW, stepH);
 				mChessBitmaps[AI.DARK][i] = Bitmap.createBitmap(chessBitmap, (i+7) * stepW, 0, stepW, stepH);
 			}
+
+			//二种颜色的棋子(二方)
 	        chessBitmap = mChessBitmaps[0][0];
 	        mChessBitmaps[0][0] = mChessBitmaps[0][6];
 	        mChessBitmaps[0][6] = chessBitmap;
+
 	        chessBitmap = mChessBitmaps[1][0];
 	        mChessBitmaps[1][0] = mChessBitmaps[1][6];
 	        mChessBitmaps[1][6] = chessBitmap;
+
 	        chessBitmap = mChessBitmaps[0][4];
 	        mChessBitmaps[0][4] = mChessBitmaps[0][5];
 	        mChessBitmaps[0][5] = chessBitmap;
+
 	        chessBitmap = mChessBitmaps[1][4];
 	        mChessBitmaps[1][4] = mChessBitmaps[1][5];
 	        mChessBitmaps[1][5] = chessBitmap;
@@ -167,15 +186,23 @@ public class ChessboardView extends AppCompatImageView {
 	        mSelectBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sel);
 		}
 
-		// draw each chess
+		//画每一个棋子（空白位内不绘制）
 		for(int i =0 ; i < AI.BOARD_SIZE ; i++) {
 			if (mPieces[i] != AI.EMPTY) {
 				PointF point = chessIndex2CanvasCoord(i);
 				Bitmap bmp = mChessBitmaps[mColors[i]][mPieces[i]];
-				canvas.drawBitmap(bmp, null,new RectF(point.x - mChessLen2, point.y - mChessLen2, point.x + mChessLen2, point.y + mChessLen2), null);
+				canvas.drawBitmap(bmp,
+						null,
+						new RectF(
+								point.x - mChessLen2,
+								point.y - mChessLen2,
+								point.x + mChessLen2,
+								point.y + mChessLen2
+						),
+						null
+				);
 			}
 		}
-
 		// draw selected positions
 		if (mChessFrom >=0 ) {
 			PointF point = chessIndex2CanvasCoord(mChessFrom);
@@ -187,6 +214,30 @@ public class ChessboardView extends AppCompatImageView {
 		}
 		super.onDraw(canvas);
 	}
+	private PointF chessIndex2CanvasCoord(int i) {
+		PointF point = new PointF(chessIndex2LogicPoint(i));
+
+		/*
+		point.x *= mLaticeLen ;
+		point.x += mStartBoardX;
+		point.y *= mLaticeLen ;
+		point.y += mStartBoardY;
+        */
+
+		float x=point.x;
+		float y=point.y;
+		point.x *=mChesslen; //每棋子的宽度
+		point.x += mStartBoardX; //棋子间的水平间隔
+		point.y *= mChesslen ;
+		point.y += mStartBoardY;//棋子间的垂直间隔
+		return point;
+	}
+	//i=0到89
+	private Point chessIndex2LogicPoint(int i) {
+		return new Point(i%9,i/9);
+	}
+
+
 
 	public void setAILevel(int depth) {
 		mAi.setSearchDepth(depth);
