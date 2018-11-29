@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
 /**
- * 字串数组填充ListView列表视
+ * （1）字串数组填充ListView列表视
  */
 public class MainActivity extends ListActivity {
 

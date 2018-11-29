@@ -35,21 +35,9 @@ public class BuddyDetailFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        updatePersonDetail(getArguments());
-    }
 
-    public void updateDetailView(Person person) {
-        FragmentActivity activity = getActivity();
-        ImageView profileImage = (ImageView) activity.findViewById(R.id.profile_image);
-        TextView name = (TextView) activity.findViewById(R.id.name);
-        TextView location = (TextView) activity.findViewById(R.id.location);
-        TextView age = (TextView) activity.findViewById(R.id.age);
-        EditText description = (EditText) activity.findViewById(R.id.description);
-        profileImage.setImageDrawable(getResources().getDrawable(person.image));
-        name.setText(person.name);
-        location.setText(person.location);
-        age.setText(String.valueOf(person.age));
-        description.setText(person.descr);
+        //从意图中提取信息
+        updatePersonDetail(getArguments());
     }
     private void updatePersonDetail(Bundle bundle) {
         if (bundle != null) {
@@ -67,4 +55,19 @@ public class BuddyDetailFragment extends Fragment {
             updateDetailView(this.person);
         }
     }
+    public void updateDetailView(Person person) {
+        FragmentActivity activity = getActivity();
+        ImageView profileImage = (ImageView) activity.findViewById(R.id.profile_image);
+        TextView name = (TextView) activity.findViewById(R.id.name);
+        TextView location = (TextView) activity.findViewById(R.id.location);
+        TextView age = (TextView) activity.findViewById(R.id.age);
+        EditText description = (EditText) activity.findViewById(R.id.description);
+
+        profileImage.setImageDrawable(getResources().getDrawable(person.image));
+        name.setText(person.name);
+        location.setText(person.location);
+        age.setText(String.valueOf(person.age));
+        description.setText(person.descr);
+    }
+
 }

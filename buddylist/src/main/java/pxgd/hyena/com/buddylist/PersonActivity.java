@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 
 /**
- * 对象数组填充ListView列表视
+ * （2）对象数组填充ListView列表视
  */
 public class PersonActivity extends ListActivity {
 

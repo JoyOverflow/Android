@@ -16,10 +16,14 @@ import android.widget.ListView;
 public class BuddyListFragment extends ListFragment {
 
     //定义接口
-    public interface OnListItemSelectedListener {
+    public interface ListSelectedListener {
         void onListItemSelected(Person selectedPerson);
     }
-    private OnListItemSelectedListener onListItemSelectedListener;
+    //接口成员字段
+    private ListSelectedListener listSelectedListener;
+
+
+
 
     public BuddyListFragment() {
         // Required empty public constructor
@@ -51,27 +55,31 @@ public class BuddyListFragment extends ListFragment {
     }
 
 
-
-
+    /**
+     * 获取关联的活动类实例（将其转换为接口字段成员）
+     * @param context
+     */
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.listSelectedListener = (ListSelectedListener) context;
+    }
     @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if(!(activity instanceof OnListItemSelectedListener)) {
+        if(!(activity instanceof ListSelectedListener)) {
             throw new ClassCastException("Activity should implement OnListItemSelectedListener");
         }
-        this.onListItemSelectedListener = (OnListItemSelectedListener) activity;
+        this.listSelectedListener = (ListSelectedListener) activity;
     }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.onListItemSelectedListener = (OnListItemSelectedListener) context;
-    }
-
+    //列表视的项点击事件
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Person selectedPerson = (Person) l.getItemAtPosition(position);
-        this.onListItemSelectedListener.onListItemSelected(selectedPerson);
+
+        //调用接口成员字段的接口方法（传入当前单击对象）
+        Person person = (Person) l.getItemAtPosition(position);
+        this.listSelectedListener.onListItemSelected(person);
     }
 
 
