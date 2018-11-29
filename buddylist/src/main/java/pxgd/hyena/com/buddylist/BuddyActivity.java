@@ -18,7 +18,7 @@ public class BuddyActivity extends FragmentActivity
         //是否存在片段容器
         if(findViewById(R.id.fragment_container)!=null) {
 
-            //活动第一次创建 savedInstanceState=null
+            //活动第一次创建时 savedInstanceState=null
             //活动已创建，设备发生旋转 savedInstanceState！=null
             //活动失去焦点后又回到活动中（或活动从后台又回到前台）onCreate不会被运行
             if (savedInstanceState != null) {
