@@ -1,1 +1,1 @@
-include ':app', ':lovepet',  ':minesweeper', ':androng', ':scratch', ':viewbackground', ':tagimageview', ':circleimageview', ':buddylist', ':chinesechess', ':testmodule', ':playbackground'
+include ':app', ':lovepet',  ':minesweeper', ':androng', ':scratch', ':viewbackground', ':tagimageview', ':circleimageview', ':buddylist', ':chinesechess', ':testmodule', ':playbackground', ':remindlist'

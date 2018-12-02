@@ -12,17 +12,18 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
     <TextView
         android:id="@+id/text"
-        android:text="Androng"
-        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="10px"
-        android:gravity="center_horizontal"
+        android:gravity="center"
+        android:text="Androng"
         android:textColor="#99FFFFFF"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:visibility="visible"/>
 </RelativeLayout>
 </FrameLayout>

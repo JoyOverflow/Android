@@ -1,4 +1,4 @@
-package pxgd.hyena.com.testmodule;
+package pxgd.hyena.com.remindlist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

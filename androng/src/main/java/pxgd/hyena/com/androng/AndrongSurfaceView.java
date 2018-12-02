@@ -50,18 +50,16 @@ public class AndrongSurfaceView  extends SurfaceView implements SurfaceHolder.Ca
     public void surfaceDestroyed(SurfaceHolder holder) {
         androngThread.setRunning(false);
         boolean retry = true;
-        while (retry)
-        {
-            try
-            {
+        while (retry) {
+            try {
                 androngThread.join();
                 retry = false;
             }
-            catch (InterruptedException e)
-            {
-            }
+            catch (InterruptedException e) { }
         }
     }
+
+
     public void setTextView(TextView textView)
     {
         statusText = textView;

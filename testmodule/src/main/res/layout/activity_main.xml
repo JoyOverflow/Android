@@ -7,10 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@android:id/list"
+    <!--<SurfaceView-->
+        <!--android:id="@+id/surfaceView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--/>-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        tools:listitem="@android:layout/simple_list_item_2"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#f3ff3333"
+
+            android:textSize="24sp"/>
+    </RelativeLayout>
 </FrameLayout>
