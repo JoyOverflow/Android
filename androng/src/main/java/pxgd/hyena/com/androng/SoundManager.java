@@ -63,12 +63,10 @@ public class SoundManager
          }
       }
    }
-
    public static void stopSound(int index)
    {
       mSoundPool.stop(mSoundPoolMap.get(index));
    }
-
    public static void cleanup()
    {
       mSoundPool.release();

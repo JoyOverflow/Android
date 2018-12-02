@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AndrongSurfaceView pongSurfaceView;
 
-
     private static final int MENU_PAUSE = 4;
     private static final int MENU_RESUME = 5;
     private static final int MENU_START_1P = 6;
@@ -19,17 +18,16 @@ public class MainActivity extends AppCompatActivity {
     private static final int MENU_SHOWINFO = 10;
     private static final int MENU_SOUND_ON = 11;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-
+        //getSupportActionBar().hide();
         pongSurfaceView = (AndrongSurfaceView) findViewById(R.id.androng);
         pongSurfaceView.setTextView((TextView) findViewById(R.id.text));
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -52,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         androidPongThread.pause();
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -81,9 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 androidPongThread.toggleSound();
                 return true;
         }
-
         return false;
     }
+
+
 
     /**
      * Invoked when the Activity loses user focus.
@@ -95,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         AndrongThread androidPongThread = pongSurfaceView.getAndroidPongThread();
         androidPongThread.pause(); // pause game when Activity pauses
     }
-
     @Override
     protected void onResume()
     {
@@ -108,6 +105,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         SoundManager.cleanup();
     }
-
-
 }

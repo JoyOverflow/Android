@@ -5,11 +5,12 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.SurfaceHolder;
 import android.view.View;
 
@@ -45,14 +46,18 @@ class AndrongThread extends Thread{
         this.handler = handler;
 
         Resources resources = context.getResources();
-        DrawableResourceCollection drawableCollection = CreateBallCollection(resources);
+        //12.2
+        //DrawableResourceCollection drawableCollection = CreateBallCollection(resources);
+        DrawableResourceCollection drawableCollection = CreateBallCollection(context,resources);
 
         ball = new Ball(drawableCollection, canvasWidth, canvasHeight, new VelocityGenerator());
         ball.setInitialVelocity();
         ball.center();
 
         DrawableResourceCollection battCollection = new DrawableResourceCollection();
-        battCollection.add(resources.getDrawable(R.drawable.bat));
+        //12.2
+        //battCollection.add(resources.getDrawable(R.drawable.bat));
+        battCollection.add(ContextCompat.getDrawable(context,R.drawable.bat));
 
         battBottom = new Sprite(battCollection, canvasWidth, canvasHeight, 0, false);
         battTop = new Sprite(battCollection, canvasWidth, canvasHeight, 0, false);
@@ -65,12 +70,29 @@ class AndrongThread extends Thread{
         SoundManager.initSounds(context);
         SoundManager.loadSounds();
     }
-
+    private DrawableResourceCollection CreateBallCollection(Context context,Resources resources)
+    {
+        int sdk=android.os.Build.VERSION.SDK_INT;
+        Drawable t = ContextCompat.getDrawable(context, R.drawable.ball1);
+        DrawableResourceCollection drawableCollection = new DrawableResourceCollection();
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball1));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball2));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball3));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball4));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball5));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball6));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball7));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball8));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball9));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball10));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball11));
+        drawableCollection.add(ContextCompat.getDrawable(context, R.drawable.ball12));
+        return drawableCollection;
+    }
     private DrawableResourceCollection CreateBallCollection(Resources resources)
     {
-
         DrawableResourceCollection drawableCollection = new DrawableResourceCollection();
-        /*drawableCollection.add(resources.getDrawable(R.drawable.ball1));
+        drawableCollection.add(resources.getDrawable(R.drawable.ball1));
         drawableCollection.add(resources.getDrawable(R.drawable.ball2));
         drawableCollection.add(resources.getDrawable(R.drawable.ball3));
         drawableCollection.add(resources.getDrawable(R.drawable.ball4));
@@ -82,23 +104,22 @@ class AndrongThread extends Thread{
         drawableCollection.add(resources.getDrawable(R.drawable.ball10));
         drawableCollection.add(resources.getDrawable(R.drawable.ball11));
         drawableCollection.add(resources.getDrawable(R.drawable.ball12));
-        */
+
         //Drawable t = ContextCompat.getDrawable(getContext(),R.drawable.ball1);
         //Drawable t=ResourcesCompat.getDrawable(resources, R.drawable.ball1, null);
 
-
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball1, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball2, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball3, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball4, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball5, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball6, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball7, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball8, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball9, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball10, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball11, null));
-        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball12, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball1, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball2, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball3, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball4, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball5, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball6, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball7, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball8, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball9, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball10, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball11, null));
+//        drawableCollection.add(ResourcesCompat.getDrawable(resources, R.drawable.ball12, null));
 
         return drawableCollection;
     }

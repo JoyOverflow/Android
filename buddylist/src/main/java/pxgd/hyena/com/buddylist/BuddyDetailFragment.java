@@ -29,7 +29,9 @@ public class BuddyDetailFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState)
     {
-        updatePersonDetail(savedInstanceState);
+        //Bundle总是为null的（因可删除此行）
+        //updateDetail(savedInstanceState);
+
         return inflater.inflate(R.layout.fragment_buddy_detail, container, false);
     }
     @Override
@@ -37,9 +39,9 @@ public class BuddyDetailFragment extends Fragment {
         super.onStart();
 
         //从意图中提取信息
-        updatePersonDetail(getArguments());
+        updateDetail(getArguments());
     }
-    private void updatePersonDetail(Bundle bundle) {
+    private void updateDetail(Bundle bundle) {
         if (bundle != null) {
             this.person = new Person(
                     bundle.getInt(Image),
