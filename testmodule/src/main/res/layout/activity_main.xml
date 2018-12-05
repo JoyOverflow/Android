@@ -13,21 +13,51 @@
         <!--android:layout_height="match_parent"-->
         <!--/>-->
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/gameLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="#f3ff3333"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_blue"
+            android:text="闯关模式"
+            android:textSize="26sp"
+            android:textColor="@color/fontColor" />
+        <Button
+            android:id="@+id/gameRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_blue"
+            android:text="随机模式"
+            android:textSize="26sp"
+            android:textColor="@android:color/white" />
+        <Button
+            android:id="@+id/gameTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_blue"
+            android:text="计时模式"
+            android:textSize="26sp"
+            android:textColor="@android:color/white" />
+        <Button
+            android:id="@+id/gameSuper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_blue"
+            android:text="无尽模式"
+            android:textSize="26sp"
+            android:textColor="@android:color/white" />
 
-            android:textSize="24sp"/>
-    </RelativeLayout>
+    </LinearLayout>
 </FrameLayout>

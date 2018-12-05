@@ -274,13 +274,27 @@ public class RemindActivity extends AppCompatActivity {
         dialog.show();
     }
 
+
     //活动类加载菜单（使标题栏出现溢出菜单按钮）
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_mains, menu);
         return true;
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_new:
+                //创建新备注
+                fireCustomDialog(null);
+                return true;
+            case R.id.action_exit:
+                finish();
+                return true;
+            default:
+                return false;
+        }
+    }
 
 
 

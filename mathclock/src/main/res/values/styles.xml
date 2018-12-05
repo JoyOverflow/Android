@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="NewClockStyle">
+        <item name="clock">@drawable/blank_clock</item>
+        <item name="hour">@drawable/hour_hand</item>
+        <item name="minute">@drawable/minute_hand</item>
+        <item name="second">@drawable/sec_hand</item>
+        <item name="center_clock">@drawable/hand_center</item>
+    </style>
+</resources>
