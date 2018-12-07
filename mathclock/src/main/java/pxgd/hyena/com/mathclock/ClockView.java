@@ -94,11 +94,10 @@ public class ClockView extends View {
         int viewCenterX = (getRight() - getLeft()) / 2;
         int viewCenterY = (getBottom() - getTop()) / 2;
 
-        //获取表盘图片的高度和宽度(即图片的高度和宽度)
+        //获取表盘图片的高度和宽度(即图片的高度和宽度dp)
         final Drawable dial = clockDrawable;
         int h = dial.getIntrinsicHeight();
         int w = dial.getIntrinsicWidth();
-
 
 
         if ((getRight() - getLeft()) < w || (getBottom() - getTop()) < h) {
@@ -108,8 +107,7 @@ public class ClockView extends View {
             canvas.scale(scale, scale, viewCenterX, viewCenterY);
         }
 
-
-
+        //绘制表盘
         if (isChange) {
             dial.setBounds(viewCenterX - (w / 2), viewCenterY
                             - (h / 2), viewCenterX + (w / 2),
@@ -140,12 +138,10 @@ public class ClockView extends View {
                     (float) (viewCenterY + (h / 2.7)),
                     paint
             );
-
             canvas.drawText("9", (float) (viewCenterX - (w / 2.7)), viewCenterY + 10, paint);
             canvas.drawText("3", (float) (viewCenterX + (w / 3)), viewCenterY + 10, paint);
         }
         canvas.save();
-
 
 
         //用canvas 画时针
@@ -229,4 +225,6 @@ public class ClockView extends View {
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
     }
+
+
 }

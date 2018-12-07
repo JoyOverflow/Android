@@ -1,63 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mountain369"
     tools:context=".MainActivity">
 
-    <!--<SurfaceView-->
-        <!--android:id="@+id/surfaceView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--/>-->
-
-    <LinearLayout
+    <pxgd.hyena.com.testmodule.ClockView
+        android:id="@+id/clockView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/gameLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/btn_blue"
-            android:text="闯关模式"
-            android:textSize="26sp"
-            android:textColor="@color/fontColor" />
-        <Button
-            android:id="@+id/gameRandom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/btn_blue"
-            android:text="随机模式"
-            android:textSize="26sp"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/gameTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/btn_blue"
-            android:text="计时模式"
-            android:textSize="26sp"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/gameSuper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/btn_blue"
-            android:text="无尽模式"
-            android:textSize="26sp"
-            android:textColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        style="@style/NewClockStyle">
+    </pxgd.hyena.com.testmodule.ClockView>
 
-    </LinearLayout>
-</FrameLayout>
+</RelativeLayout>

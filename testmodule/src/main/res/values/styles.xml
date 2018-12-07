@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -8,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="NewClockStyle">
+        <item name="clock">@drawable/clock_2</item>
+        <item name="center">@drawable/center_2</item>
+        <item name="hour">@drawable/hour_2</item>
+        <item name="minute">@drawable/minute_2</item>
+        <item name="second">@drawable/second_2</item>
+    </style>
 </resources>
