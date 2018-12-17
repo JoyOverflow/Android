@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
-import android.text.format.Time;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -25,7 +24,7 @@ public class ClockView extends View {
     //private Paint paint;
 
     //获取系统时间
-    private Time time;
+    //private Time time;
     private Thread clockThread;
     private boolean isChange;
 
@@ -55,16 +54,7 @@ public class ClockView extends View {
 
 
 
-        time = new Time();
-
-
-
-
-
-
-
-
-
+        //time = new Time();
 //        paint = new Paint();
 //        paint.setColor(Color.parseColor("#ff3333"));
 //        paint.setTypeface(Typeface.DEFAULT_BOLD);
@@ -98,12 +88,8 @@ public class ClockView extends View {
         int h = dial.getIntrinsicHeight();
 
         //计算view的中心位置
-        int v_left=getLeft();
-        int v_top=getTop();
-        int v_right=getRight();
-        int v_bottom=getBottom();
-        int viewCenterX = (v_right - v_left) / 2;
-        int viewCenterY = (v_bottom - v_top) / 2;
+        int viewCenterX = (getRight() - getLeft()) / 2;
+        int viewCenterY = (getBottom() -getTop()) / 2;
 
         //绘制表盘
         dial.setBounds(
@@ -142,17 +128,11 @@ public class ClockView extends View {
 
 
 
-
-
-
-
-
-
         //设置当前的时间（不断刷新）
-        time.setToNow();
-        int hour1 = time.hour;
-        int minute1=time.minute;
-        int second1=time.second;
+        //time.setToNow();
+        //int hour1 = time.hour;
+        //int minute1=time.minute;
+        //int second1=time.second;
 
         //获得系统时间（毫秒）
         //返回从1970.1.1午夜开始经过的毫秒数（UTC）
@@ -167,7 +147,7 @@ public class ClockView extends View {
 
         //绘制时针
         canvas.rotate(
-                time.hour / 12.0f * 360.0f,
+                hour / 12.0f * 360.0f,
                 viewCenterX,
                 viewCenterY
         );
@@ -186,7 +166,7 @@ public class ClockView extends View {
 
         //绘制分针
         canvas.rotate(
-                time.minute / 60.0f * 360.0f,
+                minute / 60.0f * 360.0f,
                 viewCenterX,
                 viewCenterY
         );
@@ -204,7 +184,7 @@ public class ClockView extends View {
 
         //绘制秒针
         canvas.rotate(
-                time.second / 60.0f * 360.0f,
+                second / 60.0f * 360.0f,
                 viewCenterX,
                 viewCenterY
         );

@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             IllegalStateException, IOException
     {
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        AssetFileDescriptor fd = this.getAssets().openFd("start02.mp4");
+        AssetFileDescriptor fd = this.getAssets().openFd("start01.mp4");
         mediaPlayer.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(),
                 fd.getLength());
         mediaPlayer.setLooping(true);

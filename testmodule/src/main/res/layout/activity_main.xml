@@ -5,14 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mountain369"
+    android:background="@drawable/car_house"
     tools:context=".MainActivity">
 
-    <pxgd.hyena.com.testmodule.ClockView
-        android:id="@+id/clockView"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_move"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        style="@style/NewClockStyle">
-    </pxgd.hyena.com.testmodule.ClockView>
-
+        android:layout_centerInParent="true"
+        android:text="移至边沿" />
 </RelativeLayout>

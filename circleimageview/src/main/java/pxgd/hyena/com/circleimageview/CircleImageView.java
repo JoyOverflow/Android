@@ -46,15 +46,12 @@ import android.widget.ImageView;
 public class CircleImageView extends AppCompatImageView {
 
     private static final ImageView.ScaleType SCALE_TYPE = ImageView.ScaleType.CENTER_CROP;
-
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
     private static final int COLORDRAWABLE_DIMENSION = 2;
-
     private static final int DEFAULT_BORDER_WIDTH = 0;
     private static final int DEFAULT_BORDER_COLOR = Color.BLACK;
     private static final int DEFAULT_CIRCLE_BACKGROUND_COLOR = Color.TRANSPARENT;
     private static final boolean DEFAULT_BORDER_OVERLAY = false;
-
     private final RectF mDrawableRect = new RectF();
     private final RectF mBorderRect = new RectF();
     private final Matrix mShaderMatrix = new Matrix();
@@ -80,7 +77,6 @@ public class CircleImageView extends AppCompatImageView {
         super(context);
         init();
     }
-
     public CircleImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
@@ -106,11 +102,9 @@ public class CircleImageView extends AppCompatImageView {
     private void init() {
         super.setScaleType(SCALE_TYPE);
         mReady = true;
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setOutlineProvider(new OutlineProvider());
         }
-
         if (mSetupPending) {
             setup();
             mSetupPending = false;
