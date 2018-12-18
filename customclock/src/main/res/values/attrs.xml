@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClockStyleable">
+        <!--reference：引用某一资源ID-->
+        <!--每定义一个attr就会在R文件里面生成一个Id-->
+        <!--name所代表的资源可查看styles.xml-->
+        <attr name="clock" format="reference"/>
+        <attr name="center" format="reference"/>
+        <attr name="hour" format="reference"/>
+        <attr name="minute" format="reference"/>
+        <attr name="second" format="reference"/>
+    </declare-styleable>
+</resources>
