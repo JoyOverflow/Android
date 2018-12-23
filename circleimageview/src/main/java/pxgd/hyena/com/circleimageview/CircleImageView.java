@@ -43,6 +43,9 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 
+/**
+ * 显示圆形图片框
+ */
 public class CircleImageView extends AppCompatImageView {
 
     private static final ImageView.ScaleType SCALE_TYPE = ImageView.ScaleType.CENTER_CROP;
